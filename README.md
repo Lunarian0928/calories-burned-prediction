@@ -54,7 +54,41 @@
 | **타겟 (Target)**| `Calories_Burned` | **칼로리 소모량** | **최종 예측해야 할 종속 변수 (회귀)** |
 ---
 
-### 탐색적 데이터 분석 및 피처 엔지니어링 (EDA & Feature Engineering)
+### 탐색적 데이터 분석 (Exploratory Data Analysis)
+제공된 생체 및 운동 데이터의 시각적 분포를 확인하여 각 변수의 통계적 특성을 파악하고자 하였습니다.
+
+#### 데이터 분포 (Data Distribution)
+- **`Age` (연령)**: 20대에 가장 많은 빈도를 보이며, 연령이 증가할수록 빈도가 서서히 감소하는 우측 꼬리(Right-skewed) 형태 분포 확인
+
+  <img width="590" height="390" alt="age_hist" src="https://github.com/user-attachments/assets/ee3d0bd8-b829-4e8b-b046-976f01777c10" />
+
+- **`Body_Temperature` (체온)**: 104°F~106°F 구간에 데이터가 집중된 좌편향(Left-skewed) 분포 양상
+
+  <img width="589" height="390" alt="body_temperature_hist" src="https://github.com/user-attachments/assets/118e0998-c0e1-4e62-af8c-73ef5aa043e5" />
+  
+- **`BPM` (심박수)**: 90~100 구간을 중심으로 하는 정규분포(Normal Distribution) 형태
+
+  <img width="589" height="390" alt="bpm_hist" src="https://github.com/user-attachments/assets/866cfdcb-58fb-44c1-bf1b-c353f6bd5990" />
+
+- **`Calories_Burned` (칼로리 소모량)**: 50 이하 저수치 구간에 밀집되어 있으며, 값이 커질수록 빈도가 감소하는 우측 꼬리(Right-skewed) 분포 형상
+  
+  <img width="590" height="390" alt="calories_burned_hist" src="https://github.com/user-attachments/assets/31fef6d0-0536-4a54-9040-22ae1114ba6b" />
+
+- **`Exercise_Duration` (운동 시간)**: 1분부터 30분까지 특정 구간에 편향되지 않고 고르게 분포된 균등 분포(Uniform Distribution) 양상 확인
+  
+  <img width="589" height="390" alt="exercise_duration_hist" src="https://github.com/user-attachments/assets/eadbedfe-9551-4f33-9ff2-621ce7e3dc70" />
+
+- **`Height` (키)**: 패트(`Feet`) 단위는 5피트와 6피트에 집중된 이산적 분포 형태이며, 나머지 인치(`Remainder_Inches`) 데이터는 0~12 사이에 넓게 퍼진 분포 확인
+
+  <img width="590" height="390" alt="height_hist" src="https://github.com/user-attachments/assets/a8258218-aa20-4d46-8e28-2cbf547ffee4" />
+
+- **`Weight` (체중)**: 140lb(약 63kg) 및 190lb(약 86kg) 부근에서 두 개의 정점을 갖는 쌍봉형(Bimodal) 분포 확인
+
+  <img width="589" height="390" alt="weight_hist" src="https://github.com/user-attachments/assets/92d40ea4-5e6d-45dd-9a67-ec737d1ffbdc" />
+
+---
+
+### 피처 엔지니어링 (Feature Engineering)
 운동 생리학 및 열역학 도메인 지식을 활용하여, 
 칼로리 소모의 근본적인 메커니즘을 반영한 다수의 파생 변수를 기획하고 구축하였습니다.
 
