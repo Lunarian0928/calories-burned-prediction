@@ -121,6 +121,36 @@
 
 ---
 
+### 의료 도메인 지식 및 분석 
+칼로리 소모 메커니즘을 규명하기 위해, 전문 의학 및 보건학 문헌을 바탕으로 가설을 수립하고 파생 변수 생성의 근거로 사용하였습니다.
+
+- **칼로리 소모와 체중의 관계**: 체중 변화와 에너지 소모량은 단순 비례하지 않으며, 신체의 대사 적응 및 제지방량 변화에 의해 조절됩니다.  
+이를 반영하여 기초대사량 기반의 `BMR_Harris`, `RMR_Mifflin` 파생 변수를 도출하였습니다.
+
+  - 🔗 **Reference**: Manfred J. Müller et al., *Changes in Energy Expenditure with Weight Gain and Weight Loss in Humans* [[Link](https://d-nb.info/1120450403/34)]
+
+- **칼로리 소모와 체온의 관계**: 신체의 에너지 전환은 열을 발생시키며, 체온은 신진대사율과 연동하여 변환합니다.  
+골격근 대사에 의한 초과 발열량을 포착하기 위해 `Temp_Excess` 및 `Thermal_Intensity`를 산출하였습니다.
+
+  - 🔗 **Reference**: Bolt Pharmacy, *Metabolic Rate and Body Temperature: Understanding Their Vital Relationship* [[Link](https://www.boltpharmacy.co.uk/guide/what-is-the-relationship-between-metabolic-rate-and-body-temperature)]
+
+- **칼로리 소모와 심박수(BPM)의 관계**: 심박수는 신체의 활동량과 운동 강도를 객관적으로 수치화하는 핵심 생리 지표입니다.  
+이를 근거로 `BPM_Multiplier` 가중치를 부여하고 `Session_Keytel_Calories` 기준점을 설정하였습니다.
+
+  - 🔗 **Reference**: Cleveland Clinic, *What To Know About Exercise and Heart Rate Zones* [[Link](https://health.clevelandclinic.org/exercise-heart-rate-zones-explained)]
+    
+- **칼로리 소모와 연령의 관계**: 연령이 증가하면 제지방량 및 주요 장기 질량이 감소하여 기초 대사율이 하락합니다.  
+연령에 따른 근본적인 대사 차이를 반영하기 위해 `Age_Range`를 범주화하고 비율 지수를 산출하였습니다.
+
+  - 🔗 **Reference**: PubMed Central, *Energy Expenditure and Aging* [[Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC2818133/)]
+    
+- **칼로리 소모와 성별의 관계**: 성별은 제지방량과 체지방량 구성비의 차이를 결정짓는 주요 생물학적 요인입니다.  
+성별 기반의 총 에너지 소비량 격차를 반영하기 위해 관련 수식을 분리하여 적용하였습니다.
+
+  - 🔗 **Reference**: PubMed Central, *Sex Differences in Measures of Energy Expenditure and Body Composition in Young, Middle-Aged, and Older Adults* [[Link](https://pmc.ncbi.nlm.nih.gov/articles/PMC12830153/)]
+
+---
+
 ### 피처 엔지니어링 (Feature Engineering)
 운동 생리학 및 열역학 도메인 지식을 활용하여, 
 칼로리 소모의 근본적인 메커니즘을 반영한 다수의 파생 변수를 기획하고 구축하였습니다.
