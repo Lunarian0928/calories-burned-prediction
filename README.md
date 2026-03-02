@@ -65,15 +65,18 @@
 - **기초 대사량 및 신체 지표 (BMR/RMR)**:
   - **`BMI (체질량지수)`**: 물리 단위가 통합된 키와 몸무게를 바탕으로 산출
   - **`BMR_ Harris` & `RMR_Mifflin`**: 성별, 나이, 체중, 키를 복합적으로 고려하는 대표적인 기초 대사량 추정 방식인 Harris-Benedict 및 Mifflin-St Jeor 공식을 각각 적용하여 개인별 고유 대사량을 수치화
+    
 - **생리학적 칼로리 소모 모델링 (Keytel & Theoretical Calories)**:
   - **`BPM_Multiplier`**: 훈련 데이터의 심박수 분위수(Quantile)을 4구간으로 나누어, 상대적인 운동 가중치를 부여
   - **`Session_Keytel_Calories`**: 심박수, 체중, 나이, 성별을 모두 고려하여 운동 중 소모되는 칼로리를 정교하게 추정하는 Keytel 공식을 적용하여, 모델에 생리학적 기준점 제공
   - **`Session_Harris_Calories`, `Session_Mifflin_Calories`**: 기초대사량 수치에 운동 시간과 강도 가중치를 곱하여 이론적 소모량을 다각도로 산출
+    
 - **구간화 및 세션 프로파일링 (Binning & Session Profiling)**:
   - **`Age_Range`**: 10년 단위로 분할하여 연령대별 비선형 패턴 범주화
   - **`Intensity_Level`**: 훈련 데이터의 심박수 분위수를 기준으로 운동 강도를 4등분하여 범주화
   - **`Duration_Category`**: 운동 시간을 3등분하여 구간별 특성 범주화
   - **`Session_Type`**: 운동 시간(15분 기준)과 심박수(95 BPM 기준)를 교차 결합하여, 세션의 성격을 4가지(`WarmUp`, `Power_Short`, `Endurance_Long`, `Athletic_Long`)로 프로파일링
+    
 - **열역학 지표 (Thermal Dynamics)**:
   - **`Temp_Excess`**: 정상 체온(98.6°F)을 기준으로 초과 발열량 도출
   - **`Thermal_Intensity`**: 운동 시간당 체온 상승 속도를 나타내는 열 생성률 산출
