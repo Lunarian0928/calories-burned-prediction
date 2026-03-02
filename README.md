@@ -86,6 +86,39 @@
 
   <img width="589" height="390" alt="weight_hist" src="https://github.com/user-attachments/assets/92d40ea4-5e6d-45dd-9a67-ec737d1ffbdc" />
 
+#### 범주형 변수에 따른 관계 분석 (Relationship Analysis by Categorical Variables)
+- **성별(`Gender`)에 따른 생체 및 운동 지표**: 연령 및 운동 시간의 중앙값은 남녀가 동일(각 39세, 15분)하지만, 체중과 키 등 물리적 지표는 남성이 여성보다 확연히 높은 수치 기록
+  <table>
+    <tr>
+      <td align="center"><img src="https://github.com/user-attachments/assets/6eb8c4db-33f5-4053-90a5-cd796784d43f" alt="age_by_gender" width="100%" /></td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/eacd0303-3711-439a-a49d-54ffb371f75f" alt="exercise_duration_by_gender" width="100%" /></td>
+    </tr>
+    <tr>
+      <td align="center"><img src="https://github.com/user-attachments/assets/6e07d613-7289-4431-a960-11dfe5f95ba1" alt="height_by_gender" width="100%" /></td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/4340ec37-f46b-4cd0-8003-b7416c1c0651" alt="weight_by_gender" width="100%" /></td>
+    </tr>
+  </table>
+
+- **성별(`Gender`)에 따른 칼로리 소모량**: 신체 지표의 뚜렷한 차이에도 불구하고 칼로리 소모량의 중앙값은 여성(78.00)이 남성(76.00)보다 근소하게 높은 수치 유지
+  <br>
+  <img width="590" height="390" alt="calories_burned_by_gender" src="https://github.com/user-attachments/assets/af6d4927-b4e4-4612-b215-e8360369e3d1" />
+
+- **체중 상태(`Weight_Status`)에 따른 심박수 및 소모량**: 체중 상태와 관계없이 심박수 중앙값은 94~96 구간에서 유사하게 형성되며, 칼로리 소모량은 과체중(Overweight) 그룹이 중앙값 81.00으로 가장 높은 수치 확인
+  <table>
+    <tr>
+      <td align="center"><img src="https://github.com/user-attachments/assets/679ec414-926e-4880-a9af-a926872a8521" alt="bpm_by_weight_status" width="100%" /></td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/12450b8e-1ae2-43d9-a2a9-8596a0a714be" alt="calories_burned_by_weight_status" width="100%" /></td>
+    </tr>
+  </table>
+
+- **체중 상태(`Weight_Status`)에 따른 키 분포**: 과체중(Overweight) 및 비만(Obese) 그룹의 키(피트) 중앙값이 정상 체중(Normal Weight) 그룹보다 상대적으로 높게 형성된 경향 파악
+  <table>
+    <tr>
+      <td align="center"><img src="https://github.com/user-attachments/assets/e71e6eec-8ce8-4149-ae97-677e52904325" alt="height_by_weight_status" width="100%" /></td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/83fd2b5b-d43f-4a8b-b39c-fedbd236a402" alt="remainder_inches_by_weight_status" width="100%" /></td>
+    </tr>
+  </table>
+
 ---
 
 ### 피처 엔지니어링 (Feature Engineering)
