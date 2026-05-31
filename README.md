@@ -16,13 +16,23 @@
 ---
 
 ### 프로젝트 구조 (Project Structure)
-```plaintext
+```
+calories-burned-prediction/
 ├── data/
-│   ├── train.csv                 # 학습용 데이터
-│   ├── test.csv                  # 추론용 데이터
-│   └── submission/               # 최종 제출 결과물 폴더
-├── CaloriesBurned_Predict_김창현.ipynb  # 메인 모델링 및 분석 코드
-└── README.md
+│   ├── train.csv                  # 학습 데이터
+│   ├── test.csv                   # 추론 데이터
+│   └── submission/                # 제출 파일 저장 폴더
+├── models/                        # 학습된 모델 저장 폴더 (.pkl)
+├── notebooks/
+│   ├── EDA.ipynb                  # 데이터 탐색 및 피처 엔지니어링
+│   └── train.ipynb                # 모델 학습 및 추론 실행 (Colab)
+├── src/
+│   ├── __init__.py
+│   ├── features.py                # 피처 엔지니어링 함수 (교호작용, 다항식, 비율 파생 변수)
+│   ├── train.py                   # 스태킹 앙상블 학습 및 Optuna 최적화
+│   ├── predict.py                 # 추론 및 제출 파일 생성
+│   └── utils.py                   # 시드 고정, 전처리기 생성
+└── requirements.txt               # 의존 패키지 목록
 ```
 
 ---
